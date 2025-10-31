@@ -1,0 +1,230 @@
+:root {
+  --primary: hsl(0, 81%, 39%);
+  --accent: #0baa55;
+  --muted: #666;
+  --bg: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: var(--bg);
+}
+
+.container {
+  max-width: max-content;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center
+  position: relative;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* BOTÓN HAMBURGUESA SIEMPRE VISIBLE */
+.nav-toggle {
+  display: block;
+  background: none;
+  border: 0;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s;
+  position: absolute; right: 1rem
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* MENÚ DESPLEGABLE */
+.main-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--primary);
+  width: 250px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.main-nav.open {
+  max-height: 400px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+}
+
+.main-nav li {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-nav li:last-child {
+  border-bottom: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: block;
+  transition: background 0.3s;
+}
+
+.main-nav a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.hero {
+  background: linear-gradient(90deg, rgba(11,85,85,0.06), rgba(11,85,170,0.03));
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  margin-bottom: .5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #099944;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.gray {
+  background: #fafafa;
+}
+
+.map-wrap {
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.promo-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.promo {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.contact-form {
+  max-width: 600px;
+}
+
+.contact-form label {
+  display: block;
+  margin: .5rem 0 .25rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: .6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.form-msg {
+  margin-top: .5rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  background: hsl(0, 81%, 39%);
+  padding: 1rem 0;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+  }
+}
+
+/* Accesibilidad */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(11,85,85,.3);
+  outline-offset: 2px;
+}
